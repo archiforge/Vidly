@@ -1,8 +1,0 @@
-_id = 600a653828d42b5f24f2c9c2
-MongoDB driver-generated ID
-
-12 bytes:
-  4 bytes: timestamp
-  3 bytes: machine identifier
-  2 bytes: process identifier
-  3 bytes: counter

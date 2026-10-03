@@ -1,0 +1,42 @@
+{
+  "name": "vidly",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Vidly — a full-stack movie rental management platform (Express + MongoDB API, React admin portal).",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,magenta \"npm run dev -w @vidly/server\" \"npm run dev -w @vidly/client\"",
+    "build": "npm run build -w @vidly/client && npm run build -w @vidly/server",
+    "start": "npm run start -w @vidly/server",
+    "seed": "npm run seed -w @vidly/server --",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test",
+    "db:up": "docker compose up -d mongo",
+    "db:down": "docker compose stop mongo"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
+    "concurrently": "^10.0.5",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@vidly/shared",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Validation schemas, API types and domain rules shared by the Vidly server and client.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "zod": "^4.3.0"
+  }
+}

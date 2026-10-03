@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: oklch(0.962 0.018 272.3);
+  --color-brand-100: oklch(0.93 0.034 272.8);
+  --color-brand-200: oklch(0.87 0.065 274);
+  --color-brand-500: oklch(0.585 0.233 277.1);
+  --color-brand-600: oklch(0.511 0.262 276.97);
+  --color-brand-700: oklch(0.457 0.24 277.02);
+}
+
+@layer base {
+  html {
+    @apply bg-zinc-50 text-zinc-900 antialiased;
+  }
+
+  body {
+    @apply min-h-dvh;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  dialog::backdrop {
+    @apply bg-zinc-950/40 backdrop-blur-[2px];
+  }
+}

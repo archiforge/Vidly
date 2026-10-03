@@ -1,0 +1,36 @@
+# Full stack:      docker compose up --build        (needs JWT_SECRET, see .env.example)
+# Database only:   docker compose up -d mongo       (for local development)
+services:
+  mongo:
+    image: mongo:8
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', 'db.adminCommand("ping").ok']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - '${PORT:-3900}:3900'
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/vidly
+      JWT_SECRET: ${JWT_SECRET:-}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-12h}
+      ALLOW_REGISTRATION: ${ALLOW_REGISTRATION:-true}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_NAME: ${ADMIN_NAME:-Administrator}
+      TRUST_PROXY: ${TRUST_PROXY:-0}
+
+volumes:
+  mongo-data:
