@@ -7,11 +7,15 @@ TypeScript**, and an admin portal built with **React 19, Vite and Tailwind CSS**
 to manage the catalogue, register customers, check movies out and process returns with automatic
 billing.
 
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](docs/screenshots/03-dashboard.png)
 
-| Process a return                                      | Customer details & history                      | Mobile                                                  |
-| ----------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------- |
-| ![Return dialog](docs/screenshots/rentals-return.png) | ![Customer page](docs/screenshots/customer.png) | ![Mobile catalogue](docs/screenshots/mobile-movies.png) |
+| Check out a movie                                         | Process a return                                                  | Customer details & history                                |
+| --------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------- |
+| ![New rental](docs/screenshots/08-new-rental-summary.png) | ![Return dialog](docs/screenshots/05-rentals-return-dialog.png)   | ![Customer page](docs/screenshots/17-customer-detail.png) |
+| **Catalogue with filters**                                | **Server-side validation on the field**                           | **Staff and roles**                                       |
+| ![Movies](docs/screenshots/10-movies-filtered-sorted.png) | ![Duplicate title](docs/screenshots/12-movie-duplicate-error.png) | ![Staff](docs/screenshots/18-staff.png)                   |
+
+**[See all 27 screenshots →](docs/SCREENSHOTS.md)**
 
 ## Features
 
