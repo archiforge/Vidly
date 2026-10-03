@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---- Install all dependencies (cached until a manifest or the lockfile changes) ----
-FROM node:22-alpine AS deps
+FROM node:26-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY apps/server/package.json apps/server/
@@ -22,7 +22,7 @@ RUN --mount=type=cache,target=/root/.npm \
   && mkdir -p apps/server/node_modules
 
 # ---- Runtime image: the API, which also serves the built admin portal ----
-FROM node:22-alpine AS runtime
+FROM node:26-alpine AS runtime
 ENV NODE_ENV=production \
     PORT=3900
 WORKDIR /app
